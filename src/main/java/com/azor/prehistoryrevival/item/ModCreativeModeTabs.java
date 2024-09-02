@@ -20,6 +20,8 @@ public class ModCreativeModeTabs {
                             .displayItems((pParameters, pOutput) -> {
                                 pOutput.accept(ModItems.CLUB.get());
                                 pOutput.accept(ModItems.OSTEODERM.get());
+
+                                pOutput.accept(ModItems.ANKYLO_SPAWN_EGG.get());
                             })
                             .build());
 

@@ -1,8 +1,11 @@
 package com.azor.prehistoryrevival;
 
+import com.azor.prehistoryrevival.entity.ModEntities;
+import com.azor.prehistoryrevival.entity.client.AnkyloRenderer;
 import com.azor.prehistoryrevival.item.ModCreativeModeTabs;
 import com.azor.prehistoryrevival.item.ModItems;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -29,6 +32,8 @@ public class PrehistoryRevival {
 
         ModCreativeModeTabs.register(modEventBus);
         ModItems.register(modEventBus);
+
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -58,6 +63,7 @@ public class PrehistoryRevival {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntities.ANKYLO.get(), AnkyloRenderer::new);
         }
     }
 }
